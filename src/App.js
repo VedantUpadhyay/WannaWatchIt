@@ -1,44 +1,33 @@
 import './App.css';
-import Header from "./MyComponents/header";
-import Footer from "./MyComponents/footer";
-import Todos from "./MyComponents/todos";
-import Addtodo from "./MyComponents/addtodos";
+import Header from "./MyComponents/Header";
+import Footer from "./MyComponents/Footer";
+import MovieList from "./MyComponents/MovieList";
+import AddMovie from "./MyComponents/AddMovie";
 import React, {useState} from 'react';
 
 function App() {
-  const onDelete = (todo) => {
-    setTodosList(todosList.filter((e) => {return e !== todo}))
+  const onDelete = (movie) => {
+    setMovieList(movieList.filter((e) => {return e !== movie}))
   };
 
-  const addTodo = (title, desc) => {
+  const addMovie = (title, desc) => {
     if(!title || !desc) return;
 
-    const id = !todosList || todosList.length === 0 ? 1 : todosList[todosList.length - 1].id;
-    setTodosList([...todosList, {
+    const id = !movieList || movieList.length === 0 ? 1 : movieList[movieList.length - 1].id;
+    setMovieList([...movieList, {
       id: id,
       title: title,
       desc: desc
     }]);
   };
 
-  const [todosList, setTodosList] = useState([
-    {
-      id: 1,
-      title: "Groceries",
-      desc: "Due today, buddyboy!"
-    },
-    {
-      id: 2,
-      title: "Complete REACT course",
-      desc: "😄"
-    }
-  ]);
+  const [movieList, setMovieList] = useState([]);
 
   return (
     <>
     <Header searchBar={false}/>
-    <Addtodo addToDo={addTodo}/>
-    <Todos todos={todosList} onDelete={onDelete}/>
+    <AddMovie addMovie={addMovie}/>
+    <MovieList movieList={movieList} onDelete={onDelete}/>
     <Footer/>
     </>
   );
