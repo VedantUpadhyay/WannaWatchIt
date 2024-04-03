@@ -10,7 +10,7 @@ export default function AddMovie(props) {
             alert("Both title and description are mandatory!");
         }
 
-        props.addToDo(movieTitle, movieDesc);
+        props.addMovie(movieTitle, movieDesc);
     };
 
     const handleMovieTitleChange = (e) => {

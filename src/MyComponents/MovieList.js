@@ -17,20 +17,19 @@ export default function MovieList(props) {
       <h2 style={textUnderline}>Watch List</h2>
       {props.movieList && props.movieList.length > 0 ? props.movieList.map((movie) => {
           return (
-          <>
-            <div key={movie.id}>
-              <Movie key={movie.id} id={movie.id} movie={movie} onDelete={props.onDelete} />
+            <React.Fragment key={movie.id}>
+              <Movie movie={movie} onDelete={props.onDelete} />
               <hr />
-            </div>
-          </>
-          )
+            </React.Fragment>
+          );
         }): 
           <> 
           <h5>Add MOVIE NOW! <span role="img" description="smiley ecnouragement" aria-label="">😄</span></h5>
           </>
-        }
+      }
     </div>
   )
+  
 }
 
 
