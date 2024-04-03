@@ -31,7 +31,7 @@ export default function Header(props) {
 }
 
 Header.defaultProps = {
-    title: "Watch List",
+    title: "WannaWatchIt!",
     searchBar: true
 };
 

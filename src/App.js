@@ -1,6 +1,6 @@
 import './App.css';
 import Header from "./MyComponents/Header";
-import Footer from "./MyComponents/Footer";
+import Footer from './MyComponents/Footer';
 import MovieList from "./MyComponents/MovieList";
 import AddMovie from "./MyComponents/AddMovie";
 import React, {useState} from 'react';
