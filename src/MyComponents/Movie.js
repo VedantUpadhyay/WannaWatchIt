@@ -2,7 +2,11 @@ import React from "react";
 
 export default function Movie({ movie, onDelete }) {
   let closeBtn = {
-    fontSize: "2rem",
+    fontSize: "3rem",
+    color: "red",
+    lineHeight: "25%",
+    cursor: "pointer",
+    verticalAlign: "middle"
   };
 
   return (
@@ -13,9 +17,7 @@ export default function Movie({ movie, onDelete }) {
           <p>{movie.desc}</p>
         </div>
         <div className="col-md-2">
-          <button style={closeBtn} className="btn btn-danger close" aria-label="Close" onClick={() => onDelete(movie)}>
-            <span aria-hidden="true">&times;</span>
-          </button>
+          <span title="Delete this movie" style={closeBtn} onClick={() => onDelete(movie)}>&times;</span>
           {/* Add drop-down here */}
         </div>
       </div>
