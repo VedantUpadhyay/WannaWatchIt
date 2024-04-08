@@ -14,7 +14,7 @@ export default function Movie({ movie, onDelete }) {
       <div className="row" key={movie.id}>
         <div className="col-md-10">
           <h4>{movie.title}</h4>
-          <p>{movie.desc}</p>
+          {/* <p>{movie.desc}</p> */}
         </div>
         <div className="col-md-2">
           <span title="Delete this movie" style={closeBtn} onClick={() => onDelete(movie)}>&times;</span>

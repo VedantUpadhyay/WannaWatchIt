@@ -10,14 +10,14 @@ function App() {
     setMovieList(movieList.filter((e) => {return e !== movie}))
   };
 
-  const addMovie = (title, desc) => {
-    if(!title || !desc) return;
+  const addMovie = (title) => {
+    if(!title) return;
 
-    const id = !movieList || movieList.length === 0 ? 1 : movieList[movieList.length - 1].id;
+    console.log("movie lst ", movieList);
+    const id = movieList.length - 1;
     setMovieList([...movieList, {
       id: id,
-      title: title,
-      desc: desc
+      title: title
     }]);
   };
 
@@ -26,8 +26,8 @@ function App() {
   return (
     <>
     <Header searchBar={false}/>
-    <AddMovie addMovie={addMovie}/>
     <MovieList movieList={movieList} onDelete={onDelete}/>
+    <AddMovie addMovie={addMovie}/>
     <Footer/>
     </>
   );
