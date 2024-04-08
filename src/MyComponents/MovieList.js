@@ -4,12 +4,14 @@ import Movie from "./Movie";
 
 export default function MovieList(props) {
   let movieListContainer = {
-    minHeight: "85vh",
+    minHeight: "65vh",
   };
 
   let textUnderline = {
     textDecoration: "underline",
   };
+
+  console.log('Movie list:', props);
 
   return (
     <div className="container my-3" style={movieListContainer}>

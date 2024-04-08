@@ -10,7 +10,7 @@ export default function Movie({ movie, onDelete }) {
       <div className="row" key={movie.id}>
         <div className="col-md-10">
           <h4>{movie.title}</h4>
-          <p>{movie.desc}</p>
+          {/* <p>{movie.desc}</p> */}
         </div>
         <div className="col-md-2">
           <button style={closeBtn} className="btn btn-danger close" aria-label="Close" onClick={() => onDelete(movie)}>
