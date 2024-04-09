@@ -6,7 +6,9 @@ export default function Movie({ movie, onDelete }) {
     color: "red",
     lineHeight: "25%",
     cursor: "pointer",
-    verticalAlign: "middle"
+    verticalAlign: "middle",
+    userSelect: "none",
+    outline: "none"
   };
 
   return (
