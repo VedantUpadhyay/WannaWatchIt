@@ -1,3 +1,4 @@
+import '../App.css';
 import React, { useState } from 'react';
 
 export default function AddMovie(props) {
@@ -8,7 +9,7 @@ export default function AddMovie(props) {
   const submit = (e) => {
     e.preventDefault();
     if (!movieTitle) {
-      alert("Movie title is mandatory!");
+      //alert("Movie title is mandatory!");
       return;
     }
 
@@ -31,7 +32,7 @@ export default function AddMovie(props) {
         <form onSubmit={submit}>
           <div className="">
             <div className="input-group input-group-lg">
-              <span className="input-group-text" id="inputGroup-sizing-lg" onClick={submit}> + </span>
+              <span className="input-group-text hover-pointer" id="inputGroup-sizing-lg" onClick={submit} disabled={!movieTitle.trim()}> + </span>
               <input type="text" className="form-control" onChange={handleMovieTitleChange} id="movie-title"
                 value={movieTitle} aria-describedby="inputGroup-sizing-lg" />
             </div>

@@ -50,3 +50,12 @@
   padding: 20px;
   z-index: 2;
 }
+
+.input-group-text[disabled] {
+  cursor: not-allowed;
+  opacity: 0.5; /* Adjust opacity to visually indicate disabled state */
+}
+
+.hover-pointer {
+  cursor: pointer; /* Change cursor to hand pointer when hovering over the span */
+}
