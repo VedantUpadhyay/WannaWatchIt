@@ -3,9 +3,13 @@ import Header from "./MyComponents/Header";
 import Footer from './MyComponents/Footer';
 import MovieList from "./MyComponents/MovieList";
 import AddMovie from "./MyComponents/AddMovie";
-import React, {useState} from 'react';
+import WatchedMovies from './MyComponents/WatchedMovies';
+import React, { useState } from 'react';
 
 function App() {
+  const [movieList, setMovieList] = useState([]);
+  const [watchedMovies, setWatchedMovies] = useState([]);
+
   const onDelete = (movie) => {
     setMovieList(movieList.filter((e) => {return e !== movie}))
   };
@@ -13,22 +17,45 @@ function App() {
   const addMovie = (title) => {
     if(!title) return;
 
-    console.log("movie lst ", movieList);
-    const id = movieList.length - 1;
+    const id = movieList.length + 1;
     setMovieList([...movieList, {
       id: id,
       title: title
     }]);
   };
 
-  const [movieList, setMovieList] = useState([]);
+  const onListCheck = (movie, isChecked) => {
+    if (!isChecked) {
+      console.log("in movie checked ", isChecked);
+      setWatchedMovies([...watchedMovies, movie]);
+      setMovieList(movieList.filter((e) => {return e !== movie}));
+    } else {
+      setWatchedMovies(watchedMovies.filter((e) => {return e !== movie}));
+    }
+  };
+
+  const onWatchedCheck = (movie, isChecked) => {
+    console.log("is watched checked ", isChecked);
+    if (!isChecked) {
+      setWatchedMovies([...watchedMovies, movie]);
+      setMovieList(movieList.filter((e) => {return e !== movie}));
+    } else {
+      setWatchedMovies(watchedMovies.filter((e) => {return e !== movie}));
+      setMovieList([...movieList, movie]);
+    }
+  };
 
   return (
     <>
-    <Header searchBar={false}/>
-    <MovieList movieList={movieList} onDelete={onDelete}/>
-    <AddMovie addMovie={addMovie}/>
-    <Footer/>
+      <Header searchBar={false}/>
+      <div className='app-container'>
+        <MovieList movieList={movieList} onDelete={onDelete} onCheck={onListCheck}/>
+        <WatchedMovies watchedMovies={watchedMovies} onCheck={onWatchedCheck} />
+      </div>
+      <div className='add-movie-container'>
+        <AddMovie addMovie={addMovie} />
+        <Footer/>
+      </div>
     </>
   );
 }
